@@ -4,9 +4,7 @@ import './App.css'
 
 const styles = StyleSheet.create({
   page: {
-
     padding: 30,
-    position: 'relative',
   },
   Header: {
     textAlign: 'center',
@@ -20,8 +18,15 @@ const styles = StyleSheet.create({
     borderBottomStyle: 'dashed',
     width: 200
   },
+  dividerTwo: {
+    marginTop: 10,
+    marginBottom: 5,
+    borderBottomWidth: 1.5,
+    borderBottomColor: 'grey',
+    borderBottomStyle: 'dashed',
+  },
   InvoiceDetails: {
-    marginTop: 40,
+    marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -45,6 +50,7 @@ const styles = StyleSheet.create({
   table: {
     marginTop: 10,
     display: 'table',
+    width: 'auto',
   },
 
   TableRow: {
@@ -55,7 +61,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#EEF6FE',
     height: 'auto',
-    padding: 5,
+    padding: 3,
   },
   TableColTwo: {
     width: 100,
@@ -70,41 +76,106 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#EEF6FE',
     height: 'auto',
-    padding: 5,
+    padding: 3,
   },
   TableColThree: {
     width: 310,
     height: 'auto',
-    padding: 5,
+    padding: 3,
   },
   TableColFour: {
     width: 100,
     height: 'auto',
-    padding: 5,
+    padding: 3,
   },
   TableColFive: {
     width: 310,
     height: 'auto',
     backgroundColor: '#F6F9FC',
-    padding: 5,
+    padding: 3,
   },
   TableColSix: {
     width: 100,
     backgroundColor: '#F6F9FC',
     height: 'auto',
-    padding: 5,
+    padding: 3,
   },
   TableTextOne: {
     width: 200,
     height: 'auto',
     padding: 5,
-    fontSize: 10
+    fontSize: 8
   },
   TableTextTwo: {
     textAlign: 'center',
     height: 'auto',
     padding: 5,
-    fontSize: 10
+    fontSize: 8
+  },
+  Payment: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+  },
+  PaymentDetails: {
+    marginTop: 10,
+    backgroundColor: '#EEF6FE',
+    borderRadius: 10
+
+  },
+  PaymentDetailsText: {
+    textAlign: 'left',
+    paddingRight: 150,
+    paddingTop: 5,
+    paddingLeft: 5,
+
+  },
+  PaymentCol: {
+    width: 115,
+    marginTop: 10,
+    height: 'auto',
+    padding: 5,
+  },
+  TableTextThree: {
+    textAlign: 'left',
+    height: 'auto',
+    padding: 5,
+    fontSize: 8
+  },
+  Condition: {
+    marginTop: 20,
+  },
+  ConditionTwo: {
+    textAlign: 'left',
+    fontSize: 8,
+    marginTop: 10,
+  },
+  ConditionText: {
+    marginTop: 10,
+    fontSize: 10,
+  },
+  footer: {
+    flexDirection: 'row',
+    position: 'absolute',
+    bottom: 70,
+    borderTop: ' 1px solid black',
+    width: '100%',
+    fontSize: 10,
+    justifyContent: 'space-between',
+    marginLeft: 30,
+  },
+  footerText: {
+    fontSize: 8,
+    marginTop: 5,
+    marginLeft: 0
+  },
+  pageNumber: {
+    fontSize: 8,
+    marginTop: 5,
+  },
+  printDateTime: {
+    fontSize: 8,
+    marginTop: 5,
   },
 })
 
@@ -159,8 +230,8 @@ const MyDocument = () => {
             </View>
 
             {/* Table Data */}
-            {Array.from({ length: 10 }).map((_, i) => (
-              <View key={i}>
+            {Array.from({ length: 8 }).map((_, i) => (
+              <View key={i} wrap={false} pageBreak="avoid">
                 <View style={styles.TableRow}>
                   <View style={styles.TableColThree}>
                     <Text style={styles.TableTextOne}> </Text>
@@ -191,12 +262,66 @@ const MyDocument = () => {
                 </View>
               </View>
             ))}
-            <View style={styles.divider} />
+            <View style={styles.dividerTwo} />
+
+            {/* Payment Details */}
+
+            <View wrap={false} pageBreak="avoid" style={styles.Payment}>
+              <View style={styles.PaymentDetails}>
+                <View style={styles.PaymentDetailsText}><Text style={styles.TableTextTwo}>Payment Info : ##########</Text></View>
+                <View style={styles.PaymentDetailsText}><Text style={styles.TableTextTwo}>Account : ##########</Text></View>
+                <View style={styles.PaymentDetailsText}><Text style={styles.TableTextTwo}>A/C Name : ##########</Text></View>
+                <View style={styles.PaymentDetailsText}><Text style={styles.TableTextTwo}>Bank Details : ##########</Text></View>
+              </View>
+              <View style={styles.Table}>
+                <View style={styles.TableRow}>
+                  <View style={styles.PaymentCol}>
+                    <Text style={styles.TableTextThree}>Sub Tota : </Text>
+                  </View>
+                  <View style={styles.PaymentCol}>
+                    <Text style={styles.TableTextThree}>0</Text>
+                  </View>
+                </View>
+
+                <View style={styles.TableRow}>
+                  <View style={styles.PaymentCol}>
+                    <Text style={styles.TableTextThree}>Tax(10%) : </Text>
+                  </View>
+                  <View style={styles.PaymentCol}>
+                    <Text style={styles.TableTextThree}>0</Text>
+                  </View>
+                </View>
+
+                <View style={styles.TableRow}>
+                  <View style={styles.PaymentCol}>
+                    <Text style={styles.TableTextThree}>Total : </Text>
+                  </View>
+                  <View style={styles.PaymentCol}>
+                    <Text style={styles.TableTextThree}>0.00</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+
+          </View>
+          <View wrap={false} pageBreak="avoid" style={styles.Condition}>
+            <Text style={styles.ConditionText}>Terms & Conditions</Text>
+            <Text style={styles.ConditionTwo}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas et veritatis, exercitationem ipsum deleniti blanditiis iste ab perspiciatis. Facere soluta vitae nisi dolores magnam facilis esse incidunt libero nesciunt saepe!</Text>
           </View>
         </View>
+        <Footer></Footer>
       </Page>
     </Document>
   )
 }
+
+const Footer = () => (
+  <View style={styles.footer} fixed >
+    <Text style={styles.footerText}>Design and developed by: Walton Group</Text>
+    <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => ` ${pageNumber} / ${totalPages}`} />
+    <Text style={styles.printDateTime}>Print Date and Time: Monday, 8 July 2024 11: 57: 44 AM</Text>
+  </View>
+)
 
 export default MyApp
