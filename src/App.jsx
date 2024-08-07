@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
 
   },
   BillDetails: {
+    borderRadius:10,
     backgroundColor: '#F7FBFF',
     padding: 20,
     width: '50%',
