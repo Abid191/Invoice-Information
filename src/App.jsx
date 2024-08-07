@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
     borderBottomStyle: 'dashed',
     width: 200
   },
-  // dividerTwo: {
-  //   marginTop: 10,
-  //   marginBottom: 5,
-  //   borderBottomWidth: 1.5,
-  //   borderBottomColor: 'grey',
-  //   borderBottomStyle: 'dashed',
-  // },
+  dividerTwo: {
+    marginTop: 30,
+    marginBottom: 5,
+    borderBottomWidth: 1.5,
+    borderBottomColor: 'grey',
+    borderBottomStyle: 'dashed',
+  },
   InvoiceDetails: {
     marginTop: 20,
     flexDirection: 'row',
@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#EEF6FE',
     height: 'auto',
-    padding: 1,
+    padding: 5,
+    justifyContent:'center'
   },
   TableColTwo: {
     width: 100,
@@ -77,7 +78,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#EEF6FE',
     height: 'auto',
-    padding: 2,
+    padding: 5,
+    justifyContent:'center'
   },
   TableColThree: {
     width: 310,
@@ -143,9 +145,9 @@ const styles = StyleSheet.create({
     padding: 5,
     fontSize: 8
   },
-  Condition: {
-    marginTop: 20,
-  },
+  // Condition: {
+  //   marginTop: 5,
+  // },
   ConditionTwo: {
     textAlign: 'left',
     fontSize: 8,
@@ -264,7 +266,7 @@ const MyDocument = () => {
                 </View>
               </View>
             ))}
-            {/* <View style={styles.dividerTwo} /> */}
+            
 
             {/* Payment Details */}
 
@@ -304,9 +306,8 @@ const MyDocument = () => {
                 </View>
               </View>
             </View>
-
-
           </View>
+          <View style={styles.dividerTwo} />
           <View wrap={false} pageBreak="avoid" style={styles.Condition}>
             <Text style={styles.ConditionText}>Terms & Conditions</Text>
             <Text style={styles.ConditionTwo}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas et veritatis, exercitationem ipsum deleniti blanditiis iste ab perspiciatis. Facere soluta vitae nisi dolores magnam facilis esse incidunt libero nesciunt saepe!</Text>
