@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
     borderBottomStyle: 'dashed',
     width: 200
   },
-  dividerTwo: {
-    marginTop: 10,
-    marginBottom: 5,
-    borderBottomWidth: 1.5,
-    borderBottomColor: 'grey',
-    borderBottomStyle: 'dashed',
-  },
+  // dividerTwo: {
+  //   marginTop: 10,
+  //   marginBottom: 5,
+  //   borderBottomWidth: 1.5,
+  //   borderBottomColor: 'grey',
+  //   borderBottomStyle: 'dashed',
+  // },
   InvoiceDetails: {
     marginTop: 20,
     flexDirection: 'row',
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     display: 'table',
     width: 'auto',
+    Bottom: 20,
   },
 
   TableRow: {
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#EEF6FE',
     height: 'auto',
-    padding: 3,
+    padding: 1,
   },
   TableColTwo: {
     width: 100,
@@ -76,23 +77,23 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#EEF6FE',
     height: 'auto',
-    padding: 3,
+    padding: 2,
   },
   TableColThree: {
     width: 310,
     height: 'auto',
-    padding: 3,
+    padding:2,
   },
   TableColFour: {
     width: 100,
     height: 'auto',
-    padding: 3,
+    padding:2,
   },
   TableColFive: {
     width: 310,
     height: 'auto',
     backgroundColor: '#F6F9FC',
-    padding: 3,
+    padding:2,
   },
   TableColSix: {
     width: 100,
@@ -104,13 +105,13 @@ const styles = StyleSheet.create({
     width: 200,
     height: 'auto',
     padding: 5,
-    fontSize: 8
+    fontSize: 9
   },
   TableTextTwo: {
     textAlign: 'center',
     height: 'auto',
     padding: 5,
-    fontSize: 8
+    fontSize: 7.4
   },
   Payment: {
     flexDirection: 'row',
@@ -157,10 +158,11 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 70,
+    bottom: 65,
     borderTop: ' 1px solid black',
     width: '100%',
     fontSize: 10,
+    marginTop:-20,
     justifyContent: 'space-between',
     marginLeft: 30,
   },
@@ -230,7 +232,7 @@ const MyDocument = () => {
             </View>
 
             {/* Table Data */}
-            {Array.from({ length: 8 }).map((_, i) => (
+            {Array.from({ length: 10 }).map((_, i) => (
               <View key={i} wrap={false} pageBreak="avoid">
                 <View style={styles.TableRow}>
                   <View style={styles.TableColThree}>
@@ -262,7 +264,7 @@ const MyDocument = () => {
                 </View>
               </View>
             ))}
-            <View style={styles.dividerTwo} />
+            {/* <View style={styles.dividerTwo} /> */}
 
             {/* Payment Details */}
 
